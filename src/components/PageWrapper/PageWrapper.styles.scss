@@ -1,3 +1,13 @@
 .main {
-	padding: 30px;
+	display: flex;
+
+	.aside {
+		width: 21%;
+		background-color: #cccccc;
+		height: calc(100vh - 60px);
+	}
+
+	.content {
+		padding: 20px;
+	}
 }

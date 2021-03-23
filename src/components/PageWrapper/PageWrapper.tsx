@@ -12,7 +12,10 @@ const PageWrapper: FC<Props> = ({ children }) => {
 	return (
 		<div>
 			<Header />
-			<main className='main'>{children}</main>
+			<main className='main'>
+				<aside className='aside'></aside>
+				<section className='content'>{children}</section>
+			</main>
 		</div>
 	);
 };
