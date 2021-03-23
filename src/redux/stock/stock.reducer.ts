@@ -4,7 +4,9 @@ import { StockInterface } from '../stock/stock.model';
 import { fetchListOfStocksRequest } from './stock.actions';
 
 const initialState: StockInterface = {
-	stockList: [],
+	stockList: {
+		bestMatches: [],
+	},
 	isLoading: true,
 };
 
@@ -21,11 +23,10 @@ const stockReducer = (
 			};
 		}
 		case getType(fetchListOfStocksRequest.success): {
-			console.log(payload);
 			return {
 				...state,
 				isLoading: false,
-				stockList: payload.bestMatches,
+				stockList: payload,
 			};
 		}
 		case getType(fetchListOfStocksRequest.failure): {
