@@ -3,14 +3,14 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { RootAction } from './root-actions';
 import stockReducer from './stock/stock.reducer';
+import graphReducer from './graph/graph-reducer';
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['stock'],
 };
 
-const reducerMap = { stock: stockReducer };
+const reducerMap = { stock: stockReducer, graph: graphReducer };
 
 export type RootState = {
 	[K in keyof typeof reducerMap]: ReturnType<typeof reducerMap[K]>;

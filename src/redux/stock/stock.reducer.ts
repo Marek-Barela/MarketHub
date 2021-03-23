@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
-import { RootAction } from '../../redux/root-actions';
-import { StockInterface } from '../stock/stock.model';
+import { RootAction } from '../root-actions';
+import { StockInterface } from './stock.model';
 import { fetchListOfStocksRequest } from './stock.actions';
 import { REHYDRATE } from 'redux-persist/lib/constants';
 

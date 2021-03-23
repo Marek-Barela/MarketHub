@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchStockDailyData } from '../../redux/graph/graph-actions';
+import { RootState } from '../../redux/root-reducer';
 import './StockListItem.styles.scss';
 
 interface ParentProps {
@@ -10,7 +13,11 @@ interface ParentProps {
 	currency: String;
 }
 
-type Props = ParentProps & RouteComponentProps;
+interface DispatchProps {
+	fetchStockDailyData: (symbol: String) => void;
+}
+
+type Props = ParentProps & DispatchProps & RouteComponentProps;
 
 const StockListItem: FC<Props> = ({
 	symbol,
@@ -19,9 +26,11 @@ const StockListItem: FC<Props> = ({
 	region,
 	currency,
 	history,
+	fetchStockDailyData,
 }) => {
 	const handleClick = () => {
 		history.push('/overview');
+		fetchStockDailyData(symbol);
 	};
 
 	return (
@@ -37,4 +46,11 @@ const StockListItem: FC<Props> = ({
 	);
 };
 
-export default withRouter(StockListItem);
+const mapDispatchToProps = {
+	fetchStockDailyData,
+};
+
+export default connect<{}, DispatchProps, {}, RootState>(
+	null,
+	mapDispatchToProps
+)(withRouter(StockListItem));
