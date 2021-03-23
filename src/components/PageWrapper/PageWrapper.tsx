@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { Header } from '../';
+import './PageWrapper.styles.scss';
 
 interface ParentProps {
 	children: ReactNode;
@@ -11,7 +12,7 @@ const PageWrapper: FC<Props> = ({ children }) => {
 	return (
 		<div>
 			<Header />
-			<main>{children}</main>
+			<main className='main'>{children}</main>
 		</div>
 	);
 };
