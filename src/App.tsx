@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { Homepage } from './pages';
+import { Route } from 'react-router-dom';
 
 const App: FC = () => {
 	return (
 		<div>
-			<Homepage />
+			<Route exact path='/' component={Homepage} />
 		</div>
 	);
 };
