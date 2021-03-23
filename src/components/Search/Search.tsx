@@ -1,15 +1,16 @@
 import React, { FC, FormEvent, useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchListOfStocks } from '../../redux/stock/stock.actions';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './Search.styles.scss';
 
 interface DispatchProps {
 	fetchListOfStocks: (action: string) => void;
 }
 
-type Props = DispatchProps;
+type Props = DispatchProps & RouteComponentProps;
 
-const Search: FC<Props> = ({ fetchListOfStocks }) => {
+const Search: FC<Props> = ({ fetchListOfStocks, history }) => {
 	const [state, setState] = useState({
 		search: '',
 	});
@@ -24,6 +25,7 @@ const Search: FC<Props> = ({ fetchListOfStocks }) => {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		fetchListOfStocks(search);
+		history.push('/');
 	};
 
 	return (
@@ -36,6 +38,7 @@ const Search: FC<Props> = ({ fetchListOfStocks }) => {
 					value={search}
 					className='search-input'
 					placeholder='Search for stock e.g IBM'
+					required
 				/>
 				<button type='submit' className='button'>
 					<span className='fas fa-search'></span>
@@ -49,4 +52,4 @@ const mapDispatchToProps = {
 	fetchListOfStocks,
 };
 
-export default connect(null, mapDispatchToProps)(Search);
+export default withRouter(connect(null, mapDispatchToProps)(Search));

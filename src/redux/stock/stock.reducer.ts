@@ -34,6 +34,9 @@ const stockReducer = (
 			return {
 				...state,
 				isLoading: false,
+				stockList: {
+					bestMatches: [],
+				},
 			};
 		}
 		case REHYDRATE: {

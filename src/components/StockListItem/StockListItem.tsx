@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './StockListItem.styles.scss';
 
 interface ParentProps {
@@ -9,11 +10,22 @@ interface ParentProps {
 	currency: String;
 }
 
-type Props = ParentProps;
+type Props = ParentProps & RouteComponentProps;
 
-const StockListItem: FC<Props> = ({ symbol, name, type, region, currency }) => {
+const StockListItem: FC<Props> = ({
+	symbol,
+	name,
+	type,
+	region,
+	currency,
+	history,
+}) => {
+	const handleClick = () => {
+		history.push('/overview');
+	};
+
 	return (
-		<tr className='listitem-row'>
+		<tr className='listitem-row' onClick={handleClick}>
 			<td className='region-row'>{region}</td>
 			<td className='name-row'>
 				<span>{symbol}</span>
@@ -25,4 +37,4 @@ const StockListItem: FC<Props> = ({ symbol, name, type, region, currency }) => {
 	);
 };
 
-export default StockListItem;
+export default withRouter(StockListItem);
