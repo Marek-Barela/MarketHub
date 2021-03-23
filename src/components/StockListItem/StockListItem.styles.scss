@@ -1,0 +1,31 @@
+.listitem-row {
+	&:hover {
+		font-weight: bold;
+	}
+
+	td {
+		border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+		min-height: 60px;
+		font-size: 0.9em;
+		cursor: pointer;
+	}
+
+	.region-row {
+		width: 15%;
+	}
+
+	.name-row {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.currency-row {
+		width: 15%;
+	}
+}

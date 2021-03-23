@@ -3,11 +3,13 @@
 
 	.aside {
 		width: 21%;
-		background-color: #cccccc;
-		height: calc(100vh - 60px);
+		background-color: #4e4e4e;
+		min-height: calc(100vh - 60px);
 	}
 
 	.content {
+		width: 79%;
 		padding: 20px;
+		background-color: #ececec;
 	}
 }

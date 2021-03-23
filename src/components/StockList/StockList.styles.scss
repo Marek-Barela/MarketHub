@@ -1,0 +1,17 @@
+.table {
+	width: 100%;
+	background-color: #f7f8f6;
+	padding: 14px;
+	box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.2);
+
+	thead {
+		text-align: left;
+
+		tr {
+			th {
+				border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+				height: 50px;
+			}
+		}
+	}
+}
