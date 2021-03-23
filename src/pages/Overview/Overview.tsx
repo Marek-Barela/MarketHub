@@ -1,8 +1,12 @@
 import React from 'react';
-import { PageWrapper } from '../../components';
+import { PageWrapper, Graph } from '../../components';
 
 const Overview = () => {
-	return <PageWrapper>Overview</PageWrapper>;
+	return (
+		<PageWrapper>
+			<Graph />
+		</PageWrapper>
+	);
 };
 
 export default Overview;
