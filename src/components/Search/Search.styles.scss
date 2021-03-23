@@ -1,0 +1,31 @@
+.search-input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.search-input {
+		width: 500px;
+	}
+
+	.button {
+		background-color: #431da9;
+		width: 50px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.fa-search {
+			font-size: 15px;
+			color: var(--white);
+		}
+	}
+
+	.button,
+	.search-input {
+		height: 30px;
+		padding: 10px;
+		outline: none;
+		border: none;
+	}
+}
