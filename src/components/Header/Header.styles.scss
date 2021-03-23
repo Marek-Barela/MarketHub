@@ -1,0 +1,19 @@
+.header {
+	height: 60px;
+	padding: 0 30px;
+	background-color: var(--main-dark);
+	color: var(--white);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.icon {
+		height: 30px;
+		width: 30px;
+		color: white;
+	}
+
+	.nav {
+		width: 300px;
+	}
+}
