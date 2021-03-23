@@ -2,6 +2,7 @@ import { getType } from 'typesafe-actions';
 import { RootAction } from '../../redux/root-actions';
 import { StockInterface } from '../stock/stock.model';
 import { fetchListOfStocksRequest } from './stock.actions';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState: StockInterface = {
 	stockList: {
@@ -34,6 +35,17 @@ const stockReducer = (
 				...state,
 				isLoading: false,
 			};
+		}
+		case REHYDRATE: {
+			if (!payload)
+				return {
+					...state,
+				};
+			else
+				return {
+					...state,
+					stockList: payload.stock.stockList,
+				};
 		}
 		default: {
 			return { ...state };
