@@ -1,8 +1,15 @@
 import React, { FC, FormEvent, useState } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchListOfStocks } from '../../redux/stock/stock.actions';
 import './Search.styles.scss';
 
-const Search: FC = () => {
+interface DispatchProps {
+	fetchListOfStocks: (action: string) => void;
+}
+
+type Props = DispatchProps;
+
+const Search: FC<Props> = ({ fetchListOfStocks }) => {
 	const [state, setState] = useState({
 		search: '',
 	});
@@ -16,18 +23,7 @@ const Search: FC = () => {
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
-
-		try {
-			const response = await axios(
-				`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${search}&apikey=${process.env.REACT_APP_API_KEY}`
-			);
-
-			if (response.status === 200) {
-				console.log(response.data.bestMatches);
-			}
-		} catch (err) {
-			console.log(err);
-		}
+		fetchListOfStocks(search);
 	};
 
 	return (
@@ -49,4 +45,8 @@ const Search: FC = () => {
 	);
 };
 
-export default Search;
+const mapDispatchToProps = {
+	fetchListOfStocks,
+};
+
+export default connect(null, mapDispatchToProps)(Search);
