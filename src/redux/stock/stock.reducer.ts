@@ -8,7 +8,7 @@ const initialState: StockInterface = {
 	stockList: {
 		bestMatches: [],
 	},
-	isLoading: true,
+	isLoading: false,
 };
 
 const stockReducer = (
