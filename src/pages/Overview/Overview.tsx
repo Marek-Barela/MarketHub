@@ -1,10 +1,10 @@
 import React from 'react';
-import { PageWrapper, Graph } from '../../components';
+import { PageWrapper, GraphPreview } from '../../components';
 
 const Overview = () => {
 	return (
 		<PageWrapper>
-			<Graph />
+			<GraphPreview />
 		</PageWrapper>
 	);
 };

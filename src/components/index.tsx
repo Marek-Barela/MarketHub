@@ -4,3 +4,4 @@ export { default as Search } from './Search/Search';
 export { default as StockList } from './StockList/StockList';
 export { default as StockListItem } from './StockListItem/StockListItem';
 export { default as Graph } from './Graph/Graph';
+export { default as GraphPreview } from './GraphPreview/GraphPreview';

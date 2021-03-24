@@ -3,9 +3,13 @@ import { RootAction } from '../../redux/root-actions';
 import { GraphInterface } from './graph-model';
 import { fetchStockDailyDataRequest } from './graph-actions';
 import { REHYDRATE } from 'redux-persist/lib/constants';
+import { graphDefaultData } from './graph-helpers';
 
 const initialState: GraphInterface = {
-	dailyData: {},
+	dailyData: {
+		'Meta Data': {},
+		'Time Series (Daily)': graphDefaultData,
+	},
 	isLoading: false,
 };
 
