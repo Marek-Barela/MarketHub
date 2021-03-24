@@ -24,11 +24,21 @@ const stockReducer = (
 			};
 		}
 		case getType(fetchListOfStocksRequest.success): {
-			return {
-				...state,
-				isLoading: false,
-				stockList: payload,
-			};
+			if (payload['Note'] === undefined)
+				return {
+					...state,
+					isLoading: false,
+					stockList: payload,
+				};
+			else {
+				return {
+					...state,
+					isLoading: false,
+					stockList: {
+						bestMatches: [],
+					},
+				};
+			}
 		}
 		case getType(fetchListOfStocksRequest.failure): {
 			return {
