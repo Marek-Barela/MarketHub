@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchStockDailyData } from '../../redux/graph/graph-actions';
+import { saveHistoryItem } from '../../redux/history/history.actions';
+import { HistoryItem } from '../../redux/history/history.model';
 import { RootState } from '../../redux/root-reducer';
 import './StockListItem.styles.scss';
 
@@ -15,6 +17,7 @@ interface ParentProps {
 
 interface DispatchProps {
 	fetchStockDailyData: (symbol: String) => void;
+	saveHistoryItem: (stockData: HistoryItem) => void;
 }
 
 type Props = ParentProps & DispatchProps & RouteComponentProps;
@@ -26,11 +29,13 @@ const StockListItem: FC<Props> = ({
 	region,
 	currency,
 	history,
+	saveHistoryItem,
 	fetchStockDailyData,
 }) => {
 	const handleClick = () => {
 		history.push('/overview');
 		fetchStockDailyData(symbol);
+		saveHistoryItem({ symbol, name, type, region, currency });
 	};
 
 	return (
@@ -48,6 +53,7 @@ const StockListItem: FC<Props> = ({
 
 const mapDispatchToProps = {
 	fetchStockDailyData,
+	saveHistoryItem,
 };
 
 export default connect<{}, DispatchProps, {}, RootState>(
