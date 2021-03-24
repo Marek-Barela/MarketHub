@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StockListItem, Loader } from '../';
+import { StockListItem, Loader, NoResults } from '../';
 
 import {
 	selectStockList,
@@ -19,10 +19,7 @@ interface StateProps {
 
 type Props = StateProps;
 
-const StockList: FC<Props> = ({
-	stockList: { bestMatches },
-	stockListIsLoading,
-}) => {
+const StockList: FC<Props> = ({ stockList: { bestMatches }, stockListIsLoading }) => {
 	return (
 		<>
 			{stockListIsLoading ? (
@@ -62,7 +59,7 @@ const StockList: FC<Props> = ({
 					</table>
 				</>
 			) : (
-				<p className='no-results'>No search results...</p>
+				<NoResults text='No search results...' />
 			)}
 		</>
 	);
@@ -73,6 +70,4 @@ const mapStateToProps = createStructuredSelector<RootState, StateProps>({
 	stockListIsLoading: selectStockListIsLoading,
 });
 
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps)(
-	StockList
-);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps)(StockList);
