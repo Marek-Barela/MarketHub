@@ -26,11 +26,22 @@ const graphReducer = (
 			};
 		}
 		case getType(fetchStockDailyDataRequest.success): {
-			return {
-				...state,
-				isLoading: false,
-				dailyData: payload,
-			};
+			if (payload['Note'] === undefined)
+				return {
+					...state,
+					isLoading: false,
+					dailyData: payload,
+				};
+			else {
+				return {
+					...state,
+					isLoading: false,
+					dailyData: {
+						'Meta Data': {},
+						'Time Series (Daily)': graphDefaultData,
+					},
+				};
+			}
 		}
 		case getType(fetchStockDailyDataRequest.failure): {
 			return {
