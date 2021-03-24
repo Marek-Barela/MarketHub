@@ -5,6 +5,11 @@ const selectGraphData = (state: RootState) => {
 	return state.graph;
 };
 
+export const selectCurrentGraphSymbol = createSelector(
+	[selectGraphData],
+	(graph) => graph.dailyData['Meta Data']['2. Symbol']
+);
+
 export const selectGraphDailyData = createSelector([selectGraphData], (graph) =>
 	Object.entries(graph.dailyData['Time Series (Daily)']).map(([x, y]) => ({
 		x,

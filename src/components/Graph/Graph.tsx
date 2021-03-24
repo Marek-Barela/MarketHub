@@ -3,11 +3,12 @@ import ReactApexCharts from 'react-apexcharts';
 
 interface ParentProps {
 	data: any;
+	symbol: string;
 }
 
 type Props = ParentProps;
 
-const Graph: FC<Props> = ({ data }) => {
+const Graph: FC<Props> = ({ data, symbol = '' }) => {
 	const series = [
 		{
 			name: 'candle',
@@ -21,7 +22,7 @@ const Graph: FC<Props> = ({ data }) => {
 			height: 350,
 		},
 		title: {
-			text: 'CandleStick Chart',
+			text: symbol,
 			align: 'center',
 		},
 		xaxis: {
