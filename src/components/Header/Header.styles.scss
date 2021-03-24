@@ -17,7 +17,15 @@
 		width: 50px;
 
 		a {
+			text-transform: uppercase;
+			font-size: 0.85em;
 			padding: 0 10px;
+			letter-spacing: 1px;
 		}
+	}
+
+	.selected {
+		font-weight: bold;
+		color: var(--secondary);
 	}
 }

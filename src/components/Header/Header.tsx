@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import logo from '../../assets/logo.png';
 import { Search } from '../';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.styles.scss';
 
 const Header: FC = () => {
@@ -10,8 +10,12 @@ const Header: FC = () => {
 			<img src={logo} alt='MarketHub' />
 			<Search />
 			<div className='nav'>
-				<Link to='/'>Home</Link>
-				<Link to='/overview'>Overview</Link>
+				<NavLink to='/' exact activeClassName='selected'>
+					Instruments
+				</NavLink>
+				<NavLink to='/overview' exact activeClassName='selected'>
+					Graph
+				</NavLink>
 			</div>
 		</header>
 	);
