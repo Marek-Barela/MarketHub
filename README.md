@@ -1,3 +1,5 @@
+![alt text](https://github.com/Marek-Barela/MarketHub/blob/master/src/assets/markethub.png?raw=true)
+
 # MarketHub
 
 React based application for providing stock informations with usage of [Alpha Vantage API](https://www.alphavantage.co/documentation/)
@@ -8,6 +10,10 @@ React based application for providing stock informations with usage of [Alpha Va
 - Obtaining advanced information about a specific stock history in the form of a chart
 - Saving user actions in browser memory
 - History panel of previous user searches
+
+## Live
+
+You can see the full project [here](https://markethub-pro.netlify.app/)
 
 ## Tech - Stack
 
