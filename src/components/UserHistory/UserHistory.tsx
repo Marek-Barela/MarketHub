@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectUserHistory } from '../../redux/history/history.selector';
+import { HistoryItem } from '../../redux/history/history.model';
+import { RootState } from '../../redux/root-reducer';
 
-const UserHistory = () => {
+interface StateProps {
+	userHistory: HistoryItem[];
+}
+
+type Props = StateProps;
+
+const UserHistoryComponent: FC<Props> = ({ userHistory }) => {
 	return (
 		<div>
-			<p>Your history is empty</p>
+			{userHistory.map((item, index) => {
+				console.log(item);
+				return <p key={index}>{item.symbol}</p>;
+			})}
 		</div>
 	);
 };
 
-export default UserHistory;
+const mapStateToProps = createStructuredSelector<RootState, StateProps>({
+	userHistory: selectUserHistory,
+});
+
+export default connect(mapStateToProps)(UserHistoryComponent);

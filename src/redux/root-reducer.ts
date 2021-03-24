@@ -4,13 +4,18 @@ import storage from 'redux-persist/lib/storage';
 import { RootAction } from './root-actions';
 import stockReducer from './stock/stock.reducer';
 import graphReducer from './graph/graph-reducer';
+import historyReducer from './history/history.reducer';
 
 const persistConfig = {
 	key: 'root',
 	storage,
 };
 
-const reducerMap = { stock: stockReducer, graph: graphReducer };
+const reducerMap = {
+	stock: stockReducer,
+	graph: graphReducer,
+	history: historyReducer,
+};
 
 export type RootState = {
 	[K in keyof typeof reducerMap]: ReturnType<typeof reducerMap[K]>;

@@ -4,10 +4,10 @@ export interface StockInterface {
 }
 
 export interface ListOfStocksResponse {
-	bestMatches: stockListItem[];
+	bestMatches: StockListItem[];
 }
 
-interface stockListItem {
+export interface StockListItem {
 	'1. symbol': string;
 	'2. name': string;
 	'3. type': string;
