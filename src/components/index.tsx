@@ -6,3 +6,4 @@ export { default as StockListItem } from './StockListItem/StockListItem';
 export { default as Graph } from './Graph/Graph';
 export { default as GraphPreview } from './GraphPreview/GraphPreview';
 export { default as Loader } from './Loader/Loader';
+export { default as NoResults } from './NoResults/NoResults';

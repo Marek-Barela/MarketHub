@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Graph, Loader } from '../';
+import { Graph, Loader, NoResults } from '../';
 import { connect } from 'react-redux';
 import {
 	selectGraphData,
@@ -32,7 +32,7 @@ const GraphPreview: FC<Props> = ({ graph, graphData, graphSymbol, graphIsLoading
 	return (
 		<div>
 			{isDefaultGraphData && graphIsLoading === false ? (
-				<p>Search for stock data</p>
+				<NoResults text='Select instrument first...' />
 			) : graphIsLoading ? (
 				<Loader />
 			) : (
