@@ -1,0 +1,20 @@
+.history-wrapper {
+	margin: 5px;
+
+	.history-title {
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 0.9em;
+	}
+
+	.history-empty {
+		p {
+			color: var(--main-dark);
+			text-align: center;
+			font-weight: bold;
+			font-size: 1.2em;
+			margin-top: 50px;
+			text-transform: uppercase;
+		}
+	}
+}
