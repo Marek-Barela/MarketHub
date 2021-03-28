@@ -4,7 +4,6 @@ import { RatesData } from '../../redux/rates/rates.model';
 type Props = RatesData;
 
 const Rates: FC<Props> = (rates) => {
-	console.log(rates);
 	const symbol = rates['Global Quote']['01. symbol'];
 	const price = rates['Global Quote']['05. price'];
 	const lastUpdate = rates['Global Quote']['07. latest trading day'];
