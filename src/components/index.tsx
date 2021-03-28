@@ -9,3 +9,5 @@ export { default as Loader } from './Loader/Loader';
 export { default as NoResults } from './NoResults/NoResults';
 export { default as UserHistory } from './UserHistory/UserHistory';
 export { default as UserHistoryItem } from './UserHistoryItem/UserHistoryItem';
+export { default as Rates } from './Rates/Rates';
+export { default as RatesPreview } from './RatesPreview/RatesPreview';

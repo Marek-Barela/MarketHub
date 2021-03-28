@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Graph, Loader, NoResults } from '../';
+import { Graph, Loader, NoResults, Rates } from '../';
 import { connect } from 'react-redux';
 import {
 	selectGraphData,
