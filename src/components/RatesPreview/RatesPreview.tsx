@@ -13,17 +13,9 @@ interface StateProps {
 type Props = StateProps;
 
 const RatesPreview: FC<Props> = ({ rates }) => {
-	const symbol = rates['Global Quote']['01. symbol'];
-	const price = rates['Global Quote']['05. price'];
-	const lastUpdate = rates['Global Quote']['07. latest trading day'];
-	const change = rates['Global Quote']['09. change'];
-	const changePercent = rates['Global Quote']['10. change percent'];
-
-	console.log(symbol, price, lastUpdate, change, changePercent);
-
 	return (
 		<div>
-			<Rates />
+			<Rates {...rates} />
 		</div>
 	);
 };
