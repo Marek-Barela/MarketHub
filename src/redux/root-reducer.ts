@@ -5,6 +5,7 @@ import { RootAction } from './root-actions';
 import stockReducer from './stock/stock.reducer';
 import graphReducer from './graph/graph-reducer';
 import historyReducer from './history/history.reducer';
+import ratesReducer from './rates/rates.reducer';
 
 const persistConfig = {
 	key: 'root',
@@ -15,6 +16,7 @@ const reducerMap = {
 	stock: stockReducer,
 	graph: graphReducer,
 	history: historyReducer,
+	rates: ratesReducer,
 };
 
 export type RootState = {
