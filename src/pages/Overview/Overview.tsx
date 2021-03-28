@@ -1,9 +1,10 @@
 import React from 'react';
-import { PageWrapper, GraphPreview } from '../../components';
+import { PageWrapper, GraphPreview, RatesPreview } from '../../components';
 
 const Overview = () => {
 	return (
 		<PageWrapper>
+			<RatesPreview />
 			<GraphPreview />
 		</PageWrapper>
 	);

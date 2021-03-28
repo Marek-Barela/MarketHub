@@ -4,7 +4,7 @@ import { GraphInterface } from './graph-model';
 export const fetchStockDailyData = createAction(
 	'graph/FETCH_STOCK_DAILY_DATA',
 	(action) => {
-		return (symbol: String) => action(symbol);
+		return (symbol: string) => action(symbol);
 	}
 );
 

@@ -4,7 +4,9 @@ import { getType } from 'typesafe-actions';
 import { fetchRatesDataRequest } from './rates.actions';
 
 const initialState: RatesInterface = {
-	ratesData: {},
+	ratesData: {
+		'Global Quote': {},
+	},
 	isLoading: false,
 };
 
