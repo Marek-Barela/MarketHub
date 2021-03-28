@@ -24,11 +24,21 @@ const ratesReducer = (
 			};
 		}
 		case getType(fetchRatesDataRequest.success): {
-			return {
-				...state,
-				isLoading: false,
-				ratesData: payload,
-			};
+			if (payload['Note'] === undefined)
+				return {
+					...state,
+					isLoading: false,
+					ratesData: payload,
+				};
+			else {
+				return {
+					...state,
+					isLoading: false,
+					ratesData: {
+						'Global Quote': {},
+					},
+				};
+			}
 		}
 		case getType(fetchRatesDataRequest.failure): {
 			return {
