@@ -2,6 +2,7 @@ import { RootAction } from '../root-actions';
 import { RatesInterface } from './rates.model';
 import { getType } from 'typesafe-actions';
 import { fetchRatesDataRequest } from './rates.actions';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState: RatesInterface = {
 	ratesData: {
@@ -44,6 +45,16 @@ const ratesReducer = (
 			return {
 				...state,
 				isLoading: false,
+			};
+		}
+		case REHYDRATE: {
+			if (!payload)
+				return {
+					...state,
+				};
+			return {
+				...state,
+				ratesData: { ...payload.rates.ratesData },
 			};
 		}
 		default: {
