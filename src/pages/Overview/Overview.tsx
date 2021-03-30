@@ -1,13 +1,36 @@
-import React from 'react';
-import { PageWrapper, GraphPreview, RatesPreview } from '../../components';
+import React, { FC } from 'react';
+import { PageWrapper, GraphPreview, RatesPreview, Loader } from '../../components';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectGraphIsLoading } from '../../redux/graph/graph-selectors';
+import { selectRatesIsLoading } from '../../redux/rates/rates.selector';
+import { RootState } from '../../redux/root-reducer';
 
-const Overview = () => {
+interface StateProps {
+	graphIsLoading: Boolean;
+	ratesIsLoading: boolean;
+}
+
+type Props = StateProps;
+
+const Overview: FC<Props> = ({ graphIsLoading, ratesIsLoading }) => {
 	return (
 		<PageWrapper>
-			<RatesPreview />
-			<GraphPreview />
+			{graphIsLoading || ratesIsLoading ? (
+				<Loader />
+			) : (
+				<>
+					<RatesPreview />
+					<GraphPreview />
+				</>
+			)}
 		</PageWrapper>
 	);
 };
 
-export default Overview;
+const mapStateToProps = createStructuredSelector<RootState, StateProps>({
+	graphIsLoading: selectGraphIsLoading,
+	ratesIsLoading: selectRatesIsLoading,
+});
+
+export default connect(mapStateToProps)(Overview);

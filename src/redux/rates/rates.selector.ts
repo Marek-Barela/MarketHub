@@ -7,7 +7,7 @@ const selectRates = (state: RootState) => {
 
 export const selectRatesData = createSelector([selectRates], (rates) => rates.ratesData);
 
-export const selectRatesisLoading = createSelector(
+export const selectRatesIsLoading = createSelector(
 	[selectRates],
 	(rates) => rates.isLoading
 );
