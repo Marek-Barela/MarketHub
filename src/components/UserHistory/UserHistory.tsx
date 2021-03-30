@@ -36,4 +36,6 @@ const mapStateToProps = createStructuredSelector<RootState, StateProps>({
 	userHistory: selectUserHistory,
 });
 
-export default connect(mapStateToProps)(UserHistoryComponent);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps)(
+	UserHistoryComponent
+);

@@ -30,4 +30,4 @@ const mapStateToProps = createStructuredSelector<RootState, StateProps>({
 	rates: selectRatesData,
 });
 
-export default connect(mapStateToProps)(RatesPreview);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps)(RatesPreview);

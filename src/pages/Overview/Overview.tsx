@@ -33,4 +33,4 @@ const mapStateToProps = createStructuredSelector<RootState, StateProps>({
 	ratesIsLoading: selectRatesIsLoading,
 });
 
-export default connect(mapStateToProps)(Overview);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps)(Overview);

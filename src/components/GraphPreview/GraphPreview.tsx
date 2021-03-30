@@ -44,4 +44,4 @@ const mapStateToProps = createStructuredSelector<RootState, StateProps>({
 	graphSymbol: selectCurrentGraphSymbol,
 });
 
-export default connect(mapStateToProps)(GraphPreview);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps)(GraphPreview);
