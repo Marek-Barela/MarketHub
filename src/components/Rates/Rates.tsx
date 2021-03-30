@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { RatesData } from '../../redux/rates/rates.model';
+import './Rates.styles.scss';
 
 type Props = RatesData;
 
@@ -10,13 +11,17 @@ const Rates: FC<Props> = (rates) => {
 	const change = rates['Global Quote']['09. change'];
 	const changePercent = rates['Global Quote']['10. change percent'];
 
+	const rateStatus = change.split('')[0] === '-' ? 'negative' : 'positive';
+	const rateArrow = rateStatus === 'negative' ? 'fas fa-caret-down' : 'fas fa-caret-up';
+
 	return (
-		<div>
-			<p>{symbol}</p>
-			<p>{price}</p>
-			<p>{lastUpdate}</p>
-			<p>{change}</p>
-			<p>{changePercent}</p>
+		<div className='rates-container'>
+			<h3 className='symbol'>{symbol}</h3>
+			<p className='price'>{price}</p>
+			<span className={rateStatus}>
+				<span className={rateArrow} /> {change} ({changePercent})
+			</span>
+			<p className='last-update'>LAST UPDATE: {lastUpdate}</p>
 		</div>
 	);
 };
