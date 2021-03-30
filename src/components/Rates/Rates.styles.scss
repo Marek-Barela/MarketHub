@@ -1,0 +1,44 @@
+.rates-container {
+	width: 100%;
+	margin: 15px 0 40px 0;
+	padding: 25px;
+	background-color: var(--white);
+	border-radius: 3px;
+
+	.symbol {
+		font-size: 2em;
+		margin: 0 0 10px 0;
+	}
+
+	.price {
+		font-size: 4em;
+		margin: 0;
+		font-weight: bold;
+	}
+
+	.fa-sort-down,
+	.fa-sort-up {
+		margin-right: 6px;
+	}
+
+	.positive,
+	.negative {
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+
+	.positive {
+		color: #39a97c;
+	}
+
+	.negative {
+		color: #cc0000;
+	}
+
+	.last-update {
+		margin: 0;
+		font-size: 0.8em;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+}

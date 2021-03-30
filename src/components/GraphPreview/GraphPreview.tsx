@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
-import { Graph, Loader, NoResults } from '../';
+import { Graph, NoResults } from '../';
 import { connect } from 'react-redux';
 import {
 	selectGraphData,
 	selectGraphDailyData,
 	selectCurrentGraphSymbol,
-	selectGraphIsLoading,
 } from '../../redux/graph/graph-selectors';
 import { createStructuredSelector } from 'reselect';
 import { RootState } from '../../redux/root-reducer';
@@ -16,12 +15,11 @@ interface StateProps {
 	graph: GraphInterface;
 	graphData: any;
 	graphSymbol: string;
-	graphIsLoading: Boolean;
 }
 
 type Props = StateProps;
 
-const GraphPreview: FC<Props> = ({ graph, graphData, graphSymbol, graphIsLoading }) => {
+const GraphPreview: FC<Props> = ({ graph, graphData, graphSymbol }) => {
 	// Check if actual state is the same as default state, should return true only at first render
 	const actualGraphState = graph.dailyData['Time Series (Daily)'];
 	const actualGraphStateStringify = JSON.stringify(actualGraphState);
@@ -31,10 +29,8 @@ const GraphPreview: FC<Props> = ({ graph, graphData, graphSymbol, graphIsLoading
 
 	return (
 		<div>
-			{isDefaultGraphData && graphIsLoading === false ? (
-				<NoResults text='Select instrument first...' />
-			) : graphIsLoading ? (
-				<Loader />
+			{isDefaultGraphData ? (
+				<NoResults text='Select instrument to display graph' />
 			) : (
 				<Graph data={graphData} symbol={graphSymbol} />
 			)}
@@ -46,7 +42,6 @@ const mapStateToProps = createStructuredSelector<RootState, StateProps>({
 	graph: selectGraphData,
 	graphData: selectGraphDailyData,
 	graphSymbol: selectCurrentGraphSymbol,
-	graphIsLoading: selectGraphIsLoading,
 });
 
 export default connect(mapStateToProps)(GraphPreview);

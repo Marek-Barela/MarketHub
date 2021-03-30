@@ -3,9 +3,9 @@ export interface UserHistory {
 }
 
 export interface HistoryItem {
-	symbol: String;
-	name: String;
-	type: String;
-	region: String;
-	currency: String;
+	symbol: string;
+	name: string;
+	type: string;
+	region: string;
+	currency: string;
 }
