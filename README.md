@@ -13,6 +13,9 @@ React based application for providing stock informations with usage of [Alpha Va
 
 ## Live
 
+Due to small available number of requests for API Vantage ( 5 calls per minute ). Application may not
+fetch all the data if user try to fetch them to many times so please be forgiving.
+
 You can see the full project [here](https://markethub-pro.netlify.app/)
 
 ## Tech - Stack
