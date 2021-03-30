@@ -13,3 +13,8 @@ export const fetchListOfStocksRequest = createAsyncAction(
 	'stock/FETCH_LIST_OF_STOCS_SUCCESS',
 	'stock/FETCH_LIST_OF_STOCS_FAILED'
 )<undefined, ListOfStocksResponse[], Error>();
+
+export const saveCurrentStockDetails = createAction(
+	'stock/SAVE_CURRENT_STOCK_DETAILS',
+	(action) => (name: string, currency: string) => action({ name, currency })
+);

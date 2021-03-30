@@ -1,6 +1,10 @@
 export interface StockInterface {
 	stockList: ListOfStocksResponse;
-	isLoading: Boolean;
+	isLoading: boolean;
+	currentStockDetails: {
+		name: string;
+		currency: string;
+	};
 }
 
 export interface ListOfStocksResponse {

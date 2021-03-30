@@ -1,12 +1,16 @@
 import { getType } from 'typesafe-actions';
 import { RootAction } from '../root-actions';
 import { StockInterface } from './stock.model';
-import { fetchListOfStocksRequest } from './stock.actions';
+import { fetchListOfStocksRequest, saveCurrentStockDetails } from './stock.actions';
 import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState: StockInterface = {
 	stockList: {
 		bestMatches: [],
+	},
+	currentStockDetails: {
+		name: '',
+		currency: '',
 	},
 	isLoading: false,
 };
@@ -49,6 +53,15 @@ const stockReducer = (
 				},
 			};
 		}
+		case getType(saveCurrentStockDetails): {
+			return {
+				...state,
+				currentStockDetails: {
+					name: payload.name,
+					currency: payload.currency,
+				},
+			};
+		}
 		case REHYDRATE: {
 			if (!payload)
 				return {
@@ -58,6 +71,7 @@ const stockReducer = (
 				return {
 					...state,
 					stockList: payload.stock.stockList,
+					currentStockDetails: payload.stock.currentStockDetails,
 				};
 		}
 		default: {
