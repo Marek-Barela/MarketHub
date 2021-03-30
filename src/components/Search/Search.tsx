@@ -24,6 +24,7 @@ const Search: FC<Props> = ({ fetchListOfStocks, history }) => {
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
+		if (search.length === 0) return;
 		fetchListOfStocks(search);
 		history.push('/');
 	};
