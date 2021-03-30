@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import './NoResults.styles.scss';
 
 interface ParentProps {
-	text: String;
+	text: string;
 }
 
 type Props = ParentProps;

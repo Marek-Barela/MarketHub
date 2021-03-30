@@ -7,7 +7,7 @@ import { selectRatesIsLoading } from '../../redux/rates/rates.selector';
 import { RootState } from '../../redux/root-reducer';
 
 interface StateProps {
-	graphIsLoading: Boolean;
+	graphIsLoading: boolean;
 	ratesIsLoading: boolean;
 }
 
