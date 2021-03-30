@@ -30,7 +30,7 @@ const GraphPreview: FC<Props> = ({ graph, graphData, graphSymbol }) => {
 	return (
 		<div>
 			{isDefaultGraphData ? (
-				<NoResults text='Select instrument first...' />
+				<NoResults text='Select instrument to display graph' />
 			) : (
 				<Graph data={graphData} symbol={graphSymbol} />
 			)}

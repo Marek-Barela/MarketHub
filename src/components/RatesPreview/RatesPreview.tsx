@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Rates } from '../';
+import { Rates, NoResults } from '../';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectRatesData } from '../../redux/rates/rates.selector';
@@ -13,9 +13,15 @@ interface StateProps {
 type Props = StateProps;
 
 const RatesPreview: FC<Props> = ({ rates }) => {
+	const ratesAreEmpty = Object.keys(rates['Global Quote']).length === 0;
+
 	return (
 		<div>
-			<Rates {...rates} />
+			{ratesAreEmpty ? (
+				<NoResults text='Select instrument to display rates' />
+			) : (
+				<Rates {...rates} />
+			)}
 		</div>
 	);
 };
