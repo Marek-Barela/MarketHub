@@ -5,12 +5,14 @@ const selectStock = (state: RootState) => {
 	return state.stock;
 };
 
-export const selectStockList = createSelector(
-	[selectStock],
-	(stock) => stock.stockList
-);
+export const selectStockList = createSelector([selectStock], (stock) => stock.stockList);
 
 export const selectStockListIsLoading = createSelector(
 	[selectStock],
 	(stock) => stock.isLoading
+);
+
+export const selectCurrentStockDetails = createSelector(
+	[selectStock],
+	(stock) => stock.currentStockDetails
 );

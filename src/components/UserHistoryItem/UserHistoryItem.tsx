@@ -19,7 +19,7 @@ type Props = HistoryItem & RouteComponentProps & DispatchProps;
 const UserHistoryItem: FC<Props> = ({
 	symbol,
 	name,
-	type,
+	currency,
 	region,
 	history,
 	fetchStockDailyData,
@@ -30,7 +30,7 @@ const UserHistoryItem: FC<Props> = ({
 		history.push('/overview');
 		fetchStockDailyData(symbol);
 		fetchRatesData(symbol);
-		saveCurrentStockDetails(name, type);
+		saveCurrentStockDetails(name, currency);
 	};
 
 	return (
