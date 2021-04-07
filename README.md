@@ -56,7 +56,8 @@ in root project directory and create reference to your API_KEY
 
 ```sh
 REACT_APP_API_KEY="Your api key"
-sample: REACT_APP_API_KEY=1234567890
+
+REACT_APP_API_KEY=1234567890
 ```
 
 If you want to keep your API_KEY fully secure you have to run your own backend
